@@ -39,12 +39,21 @@ public abstract class MixinAbstractFurnaceBlockEntity extends BaseContainerBlock
     @Unique
     protected ItemStack failedMatch = ItemStack.EMPTY;
 
+    /** Fleet fix: generation of the recipe data the cache above was filled from (see FastFurnace#recipeGeneration). */
+    @Unique
+    private int fastfurnace$generation = -1;
+
     @Shadow
     protected RecipeType<? extends AbstractCookingRecipe> recipeType;
 
     @Nullable
     @SuppressWarnings("unchecked")
     protected RecipeHolder<AbstractCookingRecipe> getRecipe(ServerLevel level) {
+        if (this.fastfurnace$generation != dev.shadowsoffire.fastfurnace.FastFurnace.recipeGeneration) {
+            this.curRecipe = null;
+            this.failedMatch = ItemStack.EMPTY;
+            this.fastfurnace$generation = dev.shadowsoffire.fastfurnace.FastFurnace.recipeGeneration;
+        }
         ItemStack input = this.getItem(0);
         if (input.isEmpty() || ItemStack.isSameItemSameComponents(this.failedMatch, input)) {
             return null;
