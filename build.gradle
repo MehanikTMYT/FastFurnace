@@ -88,7 +88,6 @@ repositories {
             includeGroupByRegex "net\\.darkhax.*"
             includeGroupByRegex "com\\.blamejared.*"
             includeGroup "org.openzen.zencode"
-            includeGroup "mezz.jei"
         }
     }
     maven {
@@ -110,7 +109,7 @@ configurations {
 dependencies {
     if (project.mixin.toBoolean())                   annotationProcessor "org.spongepowered:mixin:${mixinVersion}:processor"
     if (project.hasProperty('placeboVersion'))       implementation      "dev.shadowsoffire:Placebo:${mcVersion}-${placeboVersion}"
-    if (project.hasProperty('jeiVersion'))           localImplementation "mezz.jei:jei-${mcVersion}-neoforge:${jeiVersion}"
+// синк/порт 26.1.2: JEI-зависимость удалена — политика EMI-only
     if (project.hasProperty('jadeVersion'))          localImplementation "snownee.jade:Jade-NeoForge:${mcVersion}-${jadeVersion}"
     if (project.hasProperty('curiosVersion'))        implementation      "top.theillusivec4.curios:curios-neoforge:${curiosVersion}"
     if (project.hasProperty('patchouliVersion'))     implementation      "vazkii.patchouli:Patchouli:${patchouliVersion}"

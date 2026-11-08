@@ -1,0 +1,4 @@
+# Graphify scan exclusions (workspace layer, see /root/home/forks/.graphify-workspace/README.md).
+# Only directories that .gitignore does not already exclude are listed here.
+logs/
+libs/

@@ -8,7 +8,7 @@ license="MIT License"
 
 modId="fastfurnace"
 
-version="10.0.0"
+version="10.0.0-fleet.1"
 
 displayName="FastFurnace"
 
@@ -29,7 +29,7 @@ config="fastfurnace.mixins.json"
 [[dependencies.fastfurnace]]
     modId="neoforge"
     type="required"
-    versionRange="[26.1.2.76,)"
+    versionRange="[26.1.2.122,)"
     ordering="NONE"
     side="BOTH"
 
